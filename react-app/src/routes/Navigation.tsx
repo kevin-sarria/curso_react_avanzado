@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route, NavLink, Navigate } from "react-router-do
 
 import logo from '../assets/react.svg';
 import { LazyPage3 } from "../01-lazyload";
-import { FormikAbstractation, FormikBacisPages, FormikComponents, FormikYupPages, RegisterPage } from "../03-forms/pages";
+import { DynamicForm, FormikAbstractation, FormikBacisPages, FormikComponents, FormikYupPages, RegisterFormikPage, RegisterPage } from "../03-forms/pages";
 
 export const Navigation = () => {
   return (
@@ -34,7 +34,11 @@ export const Navigation = () => {
                     </li>
 
                     <li>
-                        <NavLink to="/lazy3" className={ ({ isActive }) => isActive ? 'nav-active' : '' }>Users</NavLink>
+                        <NavLink to="/formik-register" className={ ({ isActive }) => isActive ? 'nav-active' : '' }>Register Formik</NavLink>
+                    </li>
+
+                    <li>
+                        <NavLink to="/dynamic-form" className={ ({ isActive }) => isActive ? 'nav-active' : '' }>Dynamic Form</NavLink>
                     </li>
                 </ul>
             </nav>
@@ -45,7 +49,8 @@ export const Navigation = () => {
                 <Route path="/formik-yup" element={ <FormikYupPages /> } />
                 <Route path="/formik-components" element={ <FormikComponents /> } />
                 <Route path="/formik-abstractation" element={ <FormikAbstractation /> } />
-                <Route path="/lazy3" element={ <LazyPage3 /> } />
+                <Route path="/formik-register" element={ <RegisterFormikPage /> } />
+                <Route path="/dynamic-form" element={ <DynamicForm /> } />
 
                 <Route path="/*" element={ <Navigate to="/lazy1" /> } />
             </Routes>
