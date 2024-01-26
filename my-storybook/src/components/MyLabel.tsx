@@ -3,7 +3,7 @@ import './MyLabel.css';
 type SizeLabel = 'normal' | 'h1' | 'h2' | 'h3';
 type ColorLabel = 'text-primary' | 'text-secondary' | 'text-tertiary';
 
-interface Props {
+export interface Props {
     /**
      * Text to display
      */
@@ -25,6 +25,10 @@ interface Props {
      * Font Color
      */
     fontColor?: string;
+    /**
+     * Background Color
+     */
+    backgroundColor?: string;
 }
 
 /**
@@ -40,13 +44,15 @@ export const MyLabel = (
         size = 'normal',
         allCaps = false,
         color,
-        fontColor
+        fontColor,
+        backgroundColor = 'transparent'
     }: Props) => {
   return (
     <span
         className={`label ${size} ${color}`}
         style={{
-            color: `${fontColor ? fontColor : 'black'}`
+            color: `${fontColor ? fontColor : 'black'}`,
+            backgroundColor
         }}
     >
         { allCaps ? label.toUpperCase() : label }
